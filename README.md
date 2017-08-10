@@ -12,6 +12,8 @@
 
 > Postinstall command for Paperist template
 
+The command copying templates to project folder.
+
 ## Table of Contents
 
 - [Usage](#usage)

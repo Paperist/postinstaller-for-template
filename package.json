@@ -1,6 +1,6 @@
 {
   "name": "@paperist/postinstaller-for-template",
-  "description": "Copy templates to project folder",
+  "description": "Postinstall command for Paperist template",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/Paperist/postinstaller-for-template#readme",
