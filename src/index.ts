@@ -52,7 +52,7 @@ const spinner = ora();
       if (libpath.isAbsolute(src)) {
         src = libpath.relative(process.cwd(), src);
       }
-      const allow = ig.ignores(src);
+      const allow = !ig.ignores(src);
       // Print copied path.
       if (allow && logLevel !== 'silent') {
         spinner.info(`Copied ${src}`);
