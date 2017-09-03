@@ -42,25 +42,31 @@ const spinner = ora();
       default: false,
     },
   ]);
-  const ig = installExample ? exampleIgnore : templateIgnore;
 
   spinner.start('Copying files to project folder...');
 
-  await fse.copy(process.cwd(), projectPath, {
-    overwrite: true,
-    filter(src) {
-      if (libpath.isAbsolute(src)) {
-        src = libpath.relative(process.cwd(), src);
-      }
-      const allow = !ig.ignores(src);
-      // Print copied path.
-      if (allow && logLevel !== 'silent') {
-        spinner.info(`Copied ${src}`);
-      }
-      // Allow root dir and not ignored.
-      return allow || src === '';
-    },
-  });
+  const options = [
+    { overwrite: true, ignore: templateIgnore },
+    { overwrite: installExample, ignore: exampleIgnore },
+  ];
+
+  for (const { overwrite, ignore: ig } of options) {
+    await fse.copy(process.cwd(), projectPath, {
+      overwrite,
+      filter(src) {
+        if (libpath.isAbsolute(src)) {
+          src = libpath.relative(process.cwd(), src);
+        }
+        const allow = !ig.ignores(src);
+        // Print copied path.
+        if (allow && logLevel !== 'silent') {
+          spinner.info(`Copied ${src}`);
+        }
+        // Allow root dir and not ignored.
+        return allow || src === '';
+      },
+    });
+  }
 
   spinner.succeed(`Done to install "${packageName}".`);
 })().catch((err: Error) => {
