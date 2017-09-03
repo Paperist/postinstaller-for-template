@@ -2,8 +2,8 @@
 
 *
 .*
-!.latex
-!.latex/**/*
+!.paperist
+!.paperist/**/*
 !src
 !src/**/*
 !bibs

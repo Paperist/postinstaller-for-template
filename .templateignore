@@ -2,8 +2,8 @@
 
 *
 .*
-!.latex
-!.latex/**/*
+!.paperist
+!.paperist/**/*
 !latexmkrc
 !remarkrc.yml
 
