@@ -4,6 +4,7 @@
 .*
 !.paperist
 !.paperist/**/*
+.paperist/**/*.patch
 !latexmkrc
 !remarkrc.yml
 
