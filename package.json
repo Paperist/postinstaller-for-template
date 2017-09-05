@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/Paperist/postinstaller-for-template/issues"
   },
-  "version": "0.0.5",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "bin": {
     "postinstaller-for-template": "bin/index.js"
